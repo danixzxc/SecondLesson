@@ -3,11 +3,11 @@ using UnityEngine;
 public class RgbaSlider : MonoBehaviour
 {
     public Color myColor;
-    void OnGUI()
+    private void OnGUI()
     {
         myColor = RGBSlider(new Rect(0, 30, 200, 20), myColor);
     }
-    Color RGBSlider(Rect screenRect, Color rgba)
+    private Color RGBSlider(Rect screenRect, Color rgba)
     {
         rgba.r = LabelSlider(screenRect, rgba.r, 0.0f, 1.0f, "Red");
         screenRect.y += 20;
@@ -18,7 +18,7 @@ public class RgbaSlider : MonoBehaviour
         rgba.a = LabelSlider(screenRect, rgba.a, 0.0f, 1.0f, "Alpha");
         return rgba;
     }
-    float LabelSlider(Rect screenRect, float sliderValue, float sliderMinValue, float sliderMaxValue, string labelText)
+    private float LabelSlider(Rect screenRect, float sliderValue, float sliderMinValue, float sliderMaxValue, string labelText)
     {
         GUI.Label(screenRect, labelText);
         screenRect.x += screenRect.width;
