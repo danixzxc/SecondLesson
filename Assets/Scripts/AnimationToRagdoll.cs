@@ -6,14 +6,14 @@ public class AnimationToRagdoll : MonoBehaviour
 {
 
     private Rigidbody[] _rb;
-   //private Animation _anim;
+    private Animator _anim;
 
     private void Awake()
     {
+        _anim = GetComponent<Animator>();
         _rb = GetComponentsInChildren<Rigidbody>();
         foreach (Rigidbody rb in _rb)
             rb.isKinematic = true;
-       // _anim = GetComponent<Animation>();
     }
 
 
@@ -26,7 +26,7 @@ public class AnimationToRagdoll : MonoBehaviour
     {
         foreach (Rigidbody rb in _rb)
             rb.isKinematic = false;
-        GetComponent<Animator>().enabled = false;
+        _anim.enabled = false;
     }
 
     IEnumerator SwitchCoroutine()
